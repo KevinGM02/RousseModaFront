@@ -1,0 +1,17 @@
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff4d1;
+  }
+  .item {
+    width: 300px;
+    margin: 40px;
+    text-align: center;
+  }
+  .item img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
