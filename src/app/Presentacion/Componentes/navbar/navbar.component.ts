@@ -16,7 +16,12 @@ export class NavbarComponent {
   rutaEsInicio = true;
   isHovered = false;
   imagenActual = 'assets/logo.png';
-
+  scrollToSeccion(id: string) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   changeTo(tipo: 'normal' | 'hover') {
     this.isHovered = tipo === 'hover';
 
