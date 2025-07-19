@@ -10,7 +10,7 @@
         <!-- NAVBAR DESKTOP -->
         <nav [class.navbar-otras-estilo]="!rutaEsInicio" class="d-none d-lg-flex justify-content-center align-items-center gap-4 py-2 estilo-navbar">
             <a [class.otras-navbar-texto]="!rutaEsInicio" routerLink="/home" routerLinkActive="active" class="text-white text-decoration-none fw-bold estilo-navbar-texto">INICIO</a>
-            <a [class.otras-navbar-texto]="!rutaEsInicio" routerLink="/nosotros" routerLinkActive="active" class="text-white text-decoration-none fw-bold estilo-navbar-texto">NOSOTROS</a>
+            <a [class.otras-navbar-texto]="!rutaEsInicio" routerLink="/nosotros" routerLinkActive="active" fragment="seccion-nosotros" class="text-white text-decoration-none fw-bold estilo-navbar-texto">NOSOTROS</a>
         <!-- <div class="imagen-hover"></div> -->
             <img 
             [src]="imagenActual"
@@ -18,7 +18,7 @@
             style="height: 70px;"
             >
             <a [class.otras-navbar-texto]="!rutaEsInicio" routerLink="/catalogo" routerLinkActive="active" class="text-white text-decoration-none fw-bold estilo-navbar-texto">CATÁLOGO</a>
-            <a [class.otras-navbar-texto]="!rutaEsInicio" routerLink="/canales" routerLinkActive="active" class="text-white text-decoration-none fw-bold estilo-navbar-texto">CANALES</a>
+            <a [class.otras-navbar-texto]="!rutaEsInicio" [routerLink]="['/nosotros']" fragment="seccion-canales" class="nav-link text-white text-decoration-none fw-bold estilo-navbar-texto">CANALES</a>
         </nav>
         <!-- NAVBAR MÓVIL -->
         <nav [class.navbar-otras-estilo]="!rutaEsInicio" class="d-flex d-lg-none justify-content-between align-items-center w-100 px-3 estilo-navbar">
