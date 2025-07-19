@@ -1,26 +1,43 @@
-import { Component } from '@angular/core';
+import { Component,OnInit  } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { CatalogoExcService,Producto } from '../../../Service/Catalogo/catalogo-exc.service';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-catalogo',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,HttpClientModule,RouterModule],
   templateUrl: './catalogo.component.html',
   styleUrl: './catalogo.component.css'
 })
-export class CatalogoComponent {
-  productos = [
-    { nombre: 'Zeta Blanco Cuero x7', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Tijera Piedra', precio: 45, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Prints con Mica', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Hindú x5', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Zeta Blanco Cuero x7', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Tijera Piedra', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Prints con Mica', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Hindú x5', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Zeta Blanco Cuero x7', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Tijera Piedra', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Prints con Mica', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    { nombre: 'Hindú x5', precio: 40, imagen: 'https://media.falabella.com/falabellaPE/125197830_01/w=1500,h=1500,fit=pad' },
-    // agrega más según necesites
-  ];
+export class CatalogoComponent implements OnInit{
+  productos: Producto[] = [];
+  producto_clickeado?: Producto;
+  productosPagina: Producto[] = []; // productos visibles por página
+  paginaActual: number = 1;
+  porPagina: number = 16;
+  constructor(private ExcService: CatalogoExcService) {}
+
+  get totalPaginas(): number {
+  return Math.ceil(this.productos.length / this.porPagina);
+  }
+  ngOnInit(): void {
+    this.ExcService.getProductos().subscribe(data => {
+      this.productos = data;
+      console.log('Datos cargados:', this.productos); // <- Aquí sí se mostrará
+      this.actualizarPagina();
+    });
+  }
+  actualizarPagina() {
+  const inicio = (this.paginaActual - 1) * this.porPagina;
+  const fin = inicio + this.porPagina;
+  this.productosPagina = this.productos.slice(inicio, fin);
+  }
+  irPagina(pagina: number) {
+    if (pagina >= 1 && pagina <= this.totalPaginas) {
+      this.paginaActual = pagina;
+      this.actualizarPagina();
+    }
+  }
+  
 }

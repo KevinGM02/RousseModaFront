@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CatalogoComponent } from './Presentacion/Componentes/catalogo/catalogo.component';
+
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './Presentacion/Componentes/navbar/navbar.component';
 import { MobilNavBarComponent } from './Presentacion/Componentes/mobil-nav-bar/mobil-nav-bar.component';
