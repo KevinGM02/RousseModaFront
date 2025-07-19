@@ -11,10 +11,10 @@ export const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'nosotros', component: NosotrosComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: '**', redirectTo: 'home' },
     {
         path: 'DetalleProducto/:id',
         loadComponent: () => import('./Presentacion/Componentes/detalle-producto/detalle-producto.component').then(m => m.DetalleProductoComponent)
-    }
+    },
+    { path: '**', redirectTo: 'home' }
   ];
 
