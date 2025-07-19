@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CatalogoComponent } from './Presentacion/Componentes/catalogo/catalogo.component';
-
 @Component({
   selector: 'app-root',
   standalone: true,
