@@ -1,0 +1,36 @@
+/* APARTADO CONTENEDOR CANALES */
+.title-dinamica{
+    padding-block: 1%;
+    font-size: 240%;
+    color:#fbd34c;
+}
+.texto-justificado{
+    text-align: justify;
+    margin-bottom: 100px;
+}
+.card{
+    border: none;
+}
+.card-body{
+    margin: auto;
+    margin-block: 15%;
+}
+.contenedor-imagen{
+    padding-block: 10%;
+    width: 100%;
+    height: 810px;
+    position: relative;
+    overflow: hidden;
+}
+.sombra-izquierda {
+    box-shadow:-5px 0px 10px rgba(0, 0, 0, 0.09); /* Sombra a la izquierda */
+}
+.imagen-recortada {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+.redes-posicionadas {
+  left: 15%;
+  bottom: 10%;
+}
