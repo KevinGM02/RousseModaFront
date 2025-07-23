@@ -4,10 +4,11 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CanalesComponent } from '../canales/canales.component';
 import { ActivatedRoute } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
+import { MapaComponent } from '../mapa/mapa.component';
 @Component({
   selector: 'app-nosotros',
   standalone: true,
-  imports: [CanalesComponent],
+  imports: [CanalesComponent,MapaComponent],
   templateUrl: './nosotros.component.html',
   styleUrl: './nosotros.component.css'
 })
