@@ -1,0 +1,21 @@
+.opcion-box {
+  border: 2px solid black;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: black;
+  border-radius: 5px;
+}
+
+.opcion-box.activa {
+  background-color: #ffc107; 
+  color: white;
+  border-color: #ffc107;
+}
+
+.politicas-container {
+  margin-top: 80px; 
+  padding: 20px;
+}
+

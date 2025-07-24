@@ -1,0 +1,51 @@
+<div class="politicas-container">
+
+<div class="text-start px-3 mt-4">
+  <small class="text-secondary">INICIO / TÉRMINOS Y CONDICIONES</small>
+</div>
+
+<!-- titulo -->
+<div class="px-3 mt-2">
+  <h2 class="fw-bold">Términos y Condiciones</h2>
+</div>
+
+<!-- recuadros -->
+<div class="d-flex flex-column flex-md-row gap-2 px-3 mt-4">
+  <div 
+    class="opcion-box text-center"
+    [class.activa]="opcionSeleccionada === 'terminos'"
+    (click)="cambiarOpcion('terminos')">
+    Términos y Condiciones
+  </div>
+
+  <div 
+    class="opcion-box text-center"
+    [class.activa]="opcionSeleccionada === 'cambios'"
+    (click)="cambiarOpcion('cambios')">
+    Políticas de cambios y devoluciones
+  </div>
+
+  <div 
+    class="opcion-box text-center"
+    [class.activa]="opcionSeleccionada === 'proceso'"
+    (click)="cambiarOpcion('proceso')">
+    Proceso de compra
+  </div>
+</div>
+
+<!-- texto dinamico -->
+<div class="px-3 mt-4">
+  <div *ngIf="opcionSeleccionada === 'terminos'">
+    <p>contenido de Términos y Condiciones...</p>
+  </div>
+
+  <div *ngIf="opcionSeleccionada === 'cambios'">
+    <p>contenido de Políticas de Cambios y Devoluciones...</p>
+  </div>
+
+  <div *ngIf="opcionSeleccionada === 'proceso'">
+    <p>contenido del Proceso de Compra...</p>
+  </div>
+</div>
+
+</div>
