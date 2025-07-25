@@ -15,6 +15,7 @@ export class NavbarComponent {
   currentUrl = signal(this.router.url);
   rutaEsInicio = true;
   isHovered = false;
+  scrollActivo = signal(false);
   imagenActual = 'assets/logo.png';
   scrollToSeccion(id: string) {
     const el = document.getElementById(id);
@@ -34,22 +35,35 @@ export class NavbarComponent {
     }
   }
   constructor() 
-  { this.router.events 
-    .pipe(filter(event => event instanceof NavigationEnd)) 
-    .subscribe((event: NavigationEnd) =>
-      { this.rutaEsInicio = event.urlAfterRedirects === '/home';
-        this.setImagenPorRuta()
-      }); 
-      this.setImagenPorRuta();
+  {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.rutaEsInicio = event.urlAfterRedirects === '/home';
+        this.setImagenPorRuta();
+      });
+
+    this.setImagenPorRuta();
+
+    // detectar scroll
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY || window.pageYOffset;
+        this.scrollActivo.set(scrollY > 50); // Activar si se ha bajado 50px
+        this.setImagenPorRuta(); // también actualizar el logo
+      });
     }
-  setImagenPorRuta(){
-    const esDesktop = typeof window !== 'undefined' && window.innerWidth > 250;
-    if(this.isHovered && esDesktop){
-      return;
-    }
+  }
+
+  setImagenPorRuta() {
+  const esDesktop = typeof window !== 'undefined' && window.innerWidth > 250;
+  if ((this.isHovered || this.scrollActivo()) && esDesktop) {
+    this.imagenActual = '/assets/logo_og.png';
+  } else {
     this.imagenActual = this.rutaEsInicio
-    ? '/assets/logo.png'
-    : '/assets/logo_og.png';
-  } 
+      ? '/assets/logo.png'
+      : '/assets/logo_og.png';
+  }
+}
 
 }
