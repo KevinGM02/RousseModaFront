@@ -1,9 +1,10 @@
 # Usa la versión exacta de Node.js
-FROM node:22.8.0-alpine
+FROM node:22.8.0-slim
 
 # Instala Angular CLI 18.2.3 globalmente
 RUN npm install -g @angular/cli@18.2.3
 
+ENV CHOKIDAR_USEPOLLING=true
 # Establece el directorio de trabajo
 WORKDIR /app
 
@@ -13,7 +14,6 @@ COPY package.json package-lock.json* ./
 # Instala dependencias
 RUN npm install
 
-# Copia todo el código restante
 COPY . .
 
 # Expone el puerto 4200 para Angular
