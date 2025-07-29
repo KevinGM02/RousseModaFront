@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ENLACES } from '../../../config/enlaces.config';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { CanalesComponent } from '../canales/canales.component';
+import { CanalesComponent } from './contenido/canales/canales.component';
 import { ActivatedRoute } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
-import { MapaComponent } from '../mapa/mapa.component';
+import { MapaComponent } from './contenido/mapa/mapa.component';
+import { InfoNosotrosComponent } from './contenido/info-nosotros/info-nosotros.component';
 @Component({
   selector: 'app-nosotros',
   standalone: true,
-  imports: [CanalesComponent,MapaComponent],
+  imports: [CanalesComponent,MapaComponent,InfoNosotrosComponent],
   templateUrl: './nosotros.component.html',
   styleUrl: './nosotros.component.css'
 })
