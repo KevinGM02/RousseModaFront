@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ENLACES } from '../../../config/enlaces.config';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ENLACES } from '../../../../../config/enlaces.config';
 
 @Component({
   selector: 'app-mapa',
