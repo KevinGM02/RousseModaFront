@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './info-nosotros.component.css'
 })
 export class InfoNosotrosComponent {
-  videLocalNosotos = '/assets/VIDEO_PRUEBA.mp4'
+  videLocalNosotos = '/assets/VID_PASARELA.mp4'
 }
