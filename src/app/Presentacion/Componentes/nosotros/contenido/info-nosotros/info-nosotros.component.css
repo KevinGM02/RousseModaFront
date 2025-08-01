@@ -81,3 +81,24 @@
         font-size: 50%;
     }
 }
+/* ANIMACIONES */
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Clase base para ocultar */
+.animar-slide-up {
+    opacity: 0;
+    
+}
+.animar-slide-up.visible{
+    animation: slideUp 0.5s ease forwards;
+    animation-delay: 1s;
+}

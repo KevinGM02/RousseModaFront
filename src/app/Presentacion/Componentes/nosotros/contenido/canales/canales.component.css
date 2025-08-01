@@ -147,3 +147,37 @@
         bottom: 6%;
     }
 }
+/* ANIMACIONES */
+@keyframes slideLeft {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideRight{
+    from{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* Clase base para ocultar */
+.animar-slide-left {
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 0.3s;
+}
+.animar-slide-right{
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 0.3s;
+}
