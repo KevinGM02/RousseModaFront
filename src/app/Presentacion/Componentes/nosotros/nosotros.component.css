@@ -8,7 +8,16 @@
     opacity: 1;
   }
 }
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
+section {
+  scroll-snap-align: start;
+  /* align-items: center;
+  justify-content: center; */
+}
 /* Clase base para ocultar */
 .animar-slide-up {
   opacity: 0;
