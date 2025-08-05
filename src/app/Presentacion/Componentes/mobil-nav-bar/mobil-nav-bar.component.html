@@ -8,6 +8,6 @@
     <a routerLink="/home" routerLinkActive="active" class="text-dark fw-bold text-decoration-none">INICIO</a>
     <a routerLink="/nosotros" routerLinkActive="active" class="text-dark fw-bold text-decoration-none">NOSOTROS</a>
     <a routerLink="/catalogo" routerLinkActive="active" class="text-dark fw-bold text-decoration-none">CATÁLOGO</a>
-    <a routerLink="/canales" routerLinkActive="active" class="text-dark fw-bold text-decoration-none">CANALES</a>
+    <a [routerLink]="['/nosotros']" fragment="seccion-canales" routerLinkActive="active" class="text-dark fw-bold text-decoration-none">CANALES</a>
   </div>
 </div>
