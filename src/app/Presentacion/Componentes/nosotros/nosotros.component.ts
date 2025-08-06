@@ -34,7 +34,7 @@ export class NosotrosComponent implements OnInit {
       if (fragment) {
         setTimeout(() => {
           this.viewportScroller.scrollToAnchor(fragment);
-        }, 100); // Ajustable según tu renderizado
+        }, 100);
       }
     });
   }
@@ -53,41 +53,4 @@ export class NosotrosComponent implements OnInit {
     const elementos = document.querySelectorAll('.observar');
     elementos.forEach(el => observer.observe(el));
   }
-
-  // @HostListener('window:wheel', ['$event'])
-  // onScroll(event: WheelEvent) {
-  //   if (this.scrolling) return;
-
-  //   this.scrolling = true;
-  //   if (event.deltaY > 0) {
-  //     this.scrollToNext();
-  //   } else {
-  //     this.scrollToPrevious();
-  //   }
-
-  //   setTimeout(() => {
-  //     this.scrolling = false;
-  //   }, 500); 
-  // }
-
-  // scrollToNext() {
-  //   if (this.currentIndex < this.sections.length - 1) {
-  //     this.currentIndex++;
-  //     this.scrollToSection(this.sections[this.currentIndex]);
-  //   }
-  // }
-
-  // scrollToPrevious() {
-  //   if (this.currentIndex > 0) {
-  //     this.currentIndex--;
-  //     this.scrollToSection(this.sections[this.currentIndex]);
-  //   }
-  // }
-
-  // scrollToSection(id: string) {
-  //   const el = document.getElementById(id);
-  //   if (el) {
-  //     el.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // }
 }
